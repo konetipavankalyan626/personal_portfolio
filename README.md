@@ -2,7 +2,7 @@
 
 This is my **official portfolio website**, showcasing my Data Analytics projects, dashboards, skills, and achievements.
 
-🔗 **Live Website:** https://konetipavankalyan626.github.io/  
+🔗 **Live Website:** https://konetipavankalyan626.github.io/personal_portfolio/  
 📌 **Tech Used:** HTML, CSS, JavaScript, Power BI embeds, GitHub Pages
 
 ---
