@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>vCard - Personal Portfolio</title>
+  <title>Pavan Kalyan Koneti — Data Analyst Portfolio</title>
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -21,443 +21,95 @@
       --accent: #3b82f6;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: Poppins, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
     }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    main {
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      min-height: 100vh;
-    }
+    main { display: grid; grid-template-columns: 320px 1fr; min-height: 100vh; }
 
     /* Sidebar */
     .sidebar {
       background: var(--card);
       padding: 20px;
-      border-right: 1px solid rgba(255, 255, 255, .08);
+      border-right: 1px solid rgba(255,255,255,.08);
       position: sticky;
       top: 0;
       height: 100vh;
       overflow: auto;
     }
-
     .avatar-box img {
-      width: 100px;
-      height: 100px;
-      border-radius: 16px;
-      object-fit: cover;
+      width: 100px; height: 100px; border-radius: 16px; object-fit: cover;
     }
+    .name { font-size: 1.4rem; margin: 14px 0 4px; }
+    .title { margin: 0; color: var(--muted); }
+    .separator { height: 1px; background: rgba(255,255,255,.08); margin: 16px 0; }
 
-    .name {
-      font-size: 1.4rem;
-      margin: 14px 0 4px;
+    .contacts-list, .social-list {
+      list-style: none; padding: 0; margin: 0; display: grid; gap: 12px;
     }
-
-    .title {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .separator {
-      height: 1px;
-      background: rgba(255, 255, 255, .08);
-      margin: 16px 0;
-    }
-
-    .contacts-list,
-    .social-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 12px;
-    }
-
-    .contact-item {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-    }
-
+    .contact-item { display:flex; gap:12px; align-items:flex-start; }
     .icon-box {
-      width: 36px;
-      height: 36px;
-      display: grid;
-      place-items: center;
-      background: #0f1622;
-      border-radius: 10px;
+      width:36px; height:36px; display:grid; place-items:center; background:#0f1622; border-radius:10px;
     }
+    .contact-title { margin:0 0 4px; font-size:.9rem; color:var(--muted); }
+    .contact-link, address, time { color:var(--text); font-style:normal; font-size:.95rem; }
 
-    .contact-title {
-      margin: 0 0 4px;
-      font-size: .9rem;
-      color: var(--muted);
-    }
-
-    .contact-link,
-    address,
-    time {
-      color: var(--text);
-      font-style: normal;
-      font-size: .95rem;
-    }
-
-    .social-list {
-      display: flex;
-      gap: 12px;
-    }
-
-    .social-link {
-      display: grid;
-      place-items: center;
-      width: 36px;
-      height: 36px;
-      background: #0f1622;
-      border-radius: 10px;
-    }
+    .social-list { display:flex; gap:12px; margin-top:6px; }
+    .social-link { display:grid; place-items:center; width:36px; height:36px; background:#0f1622; border-radius:10px; }
 
     /* Main content */
-    .main-content {
-      padding: 24px;
-    }
-
-    .navbar-list {
-      list-style: none;
-      display: flex;
-      gap: 12px;
-      padding: 0;
-      margin: 0 0 18px;
-      flex-wrap: wrap;
-    }
-
+    .main-content { padding: 24px; }
+    .navbar-list { list-style:none; display:flex; gap:12px; padding:0; margin:0 0 18px; flex-wrap:wrap; }
     .navbar-link {
-      background: #0f1622;
-      border: 1px solid transparent;
-      color: var(--text);
-      padding: 10px 14px;
-      border-radius: 10px;
-      cursor: pointer;
+      background:#0f1622; border:1px solid transparent; color:var(--text); padding:10px 14px; border-radius:10px; cursor:pointer;
     }
+    .navbar-link.active { background:transparent; border-color:var(--accent); color:var(--accent); }
 
-    .navbar-link.active {
-      background: transparent;
-      border-color: var(--accent);
-      color: var(--accent);
+    article { display:none; }
+    article.active { display:block; }
+
+    .h2.article-title { margin:0 0 12px; }
+    .about-text p { color:#cdd6e6; line-height:1.6; margin:0 0 12px; }
+
+    /* Services / Projects / Timeline / Skills */
+    .service-list, .timeline-list, .skills-list, .portfolio-list {
+      list-style:none; padding:0; margin:0; display:grid; gap:12px;
     }
-
-    article {
-      display: none;
+    .service-item, .timeline-item, .skills-item, .portfolio-item a {
+      background:#0f1622; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:12px; overflow:hidden;
     }
+    .service-icon-box img { width:64px; height:64px; border-radius:12px; object-fit:cover; }
 
-    article.active {
-      display: block;
-    }
+    .title-wrapper { display:flex; align-items:center; gap:10px; margin-bottom:10px; }
+    .skill-progress-bg { height:8px; background:#0e1420; border-radius:999px; overflow:hidden; margin-top:8px; }
+    .skill-progress-fill { height:100%; background:var(--accent); width:0%; }
 
-    .h2.article-title {
-      margin: 0 0 12px;
-    }
+    /* Portfolio grid */
+    .portfolio-list { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); }
+    .portfolio-item img { width:100%; height:150px; object-fit:cover; border-radius:8px 8px 0 0; }
+    .portfolio-item h4 { margin:10px 12px 4px; font-size:1rem; }
+    .portfolio-item p { margin:0 12px 12px; color:var(--muted); font-size:.9rem; }
 
-    .about-text p {
-      color: #cdd6e6;
-      line-height: 1.6;
-    }
-
-    .service {
-      margin-top: 22px;
-    }
-
-    .service-title {
-      margin: 0 0 12px;
-    }
-
-    .service-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 12px;
-    }
-
-    .service-item {
-      display: flex;
-      gap: 14px;
-      padding: 12px;
-      background: #0f1622;
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 12px;
-    }
-
-    .service-icon-box img {
-      width: 64px;
-      height: 64px;
-      border-radius: 12px;
-      object-fit: cover;
-    }
-
-    .service-item-title {
-      margin: 0 0 6px;
-    }
-
-    /* Timeline */
-    .timeline {
-      margin-top: 26px;
-    }
-
-    .title-wrapper {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 10px;
-    }
-
-    .timeline-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 12px;
-    }
-
-    .timeline-item {
-      background: #0f1622;
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 12px;
-      padding: 14px;
-    }
-
-    .timeline-item-title {
-      margin: 0 0 4px;
-    }
-
-    .timeline-text {
-      margin: 8px 0 0;
-      color: #cdd6e6;
-    }
-
-    /* Skills */
-    .skills-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 12px;
-    }
-
-    .skills-item {
-      background: #0f1622;
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 12px;
-      padding: 12px;
-    }
-
-    .title-wrapper {
-      justify-content: flex-start;
-    }
-
-    .skill-progress-bg {
-      height: 8px;
-      background: #0e1420;
-      border-radius: 999px;
-      overflow: hidden;
-      margin-top: 8px;
-    }
-
-    .skill-progress-fill {
-      height: 100%;
-      background: var(--accent);
-      width: 0%;
-    }
-
-    /* Portfolio */
-    .section-title {
-      margin: 0 0 12px;
-    }
-
-    .filter-list {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 14px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-
-    .filter-item button {
-      cursor: pointer;
-      padding: 8px 12px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, .1);
-      background: #0f1622;
-      color: var(--text);
-    }
-
-    .filter-item button.active {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: transparent;
-    }
-
-    .portfolio-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 14px;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    }
-
-    .portfolio-item a {
-      display: block;
-      background: #0f1622;
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .portfolio-item img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-    }
-
-    .portfolio-item h4 {
-      margin: 10px 12px 4px;
-      font-size: 1rem;
-    }
-
-    .portfolio-item p {
-      margin: 0 12px 12px;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    /* Blog */
-    .blog-posts-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      display: grid;
-      gap: 14px;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    }
-
-    .blog-post-item a {
-      display: block;
-      background: #0f1622;
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 12px;
-      overflow: hidden;
-    }
-
-    .blog-banner-box img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
-
-    .blog-content {
-      padding: 12px;
-    }
-
-    .blog-meta {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      color: var(--muted);
-      font-size: .9rem;
-    }
-
-    .dot {
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: #5a6577;
-      display: inline-block;
-    }
-
-    /* Contact */
-    .mapbox iframe {
-      width: 100%;
-      max-width: 600px;
-      border: 0;
-      border-radius: 12px;
-    }
-
-    .form {
-      background: #0f1622;
-      border: 1px solid rgba(255, 255, 255, .06);
-      border-radius: 12px;
-      padding: 12px;
-      max-width: 640px;
-    }
-
-    .input-wrapper {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .form-input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, .1);
-      background: #0b111b;
-      color: var(--text);
-    }
-
-    .form textarea.form-input {
-      min-height: 120px;
-      resize: vertical;
-    }
-
+    /* Contact form */
+    .form { background:#0f1622; border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:12px; max-width:640px; }
+    .input-wrapper { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-bottom:10px; }
+    .form-input { width:100%; padding:10px; border-radius:10px; border:1px solid rgba(255,255,255,.1); background:#0b111b; color:var(--text); }
+    .form textarea.form-input { min-height:120px; resize:vertical; }
     .form-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      border: 1px solid rgba(255, 255, 255, .1);
-      background: #0b111b;
-      color: var(--text);
-      padding: 10px 14px;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 10px;
-    }
-
-    .form-btn[disabled] {
-      opacity: .5;
-      cursor: not-allowed;
+      display:inline-flex; align-items:center; gap:8px; border:1px solid rgba(255,255,255,.1);
+      background:#0b111b; color:var(--text); padding:10px 14px; border-radius:10px; cursor:pointer; margin-top:10px;
     }
 
     /* Responsive */
     @media (max-width: 980px) {
-      main {
-        grid-template-columns: 1fr;
-      }
-
-      .sidebar {
-        position: relative;
-        height: auto;
-      }
+      main { grid-template-columns: 1fr; }
+      .sidebar { position: relative; height: auto; }
     }
   </style>
 </head>
@@ -468,13 +120,15 @@
     <aside class="sidebar" data-sidebar>
       <div class="sidebar-info">
         <figure class="avatar-box">
-          <!-- Put your photo here: assets/images/pavan.jpg -->
+          <!-- Replace with your image at ./assets/images/pavan.jpg -->
           <img src="./assets/images/pavan.jpg" alt="Pavan Kalyan Koneti" data-fallback />
         </figure>
+
         <div class="info-content">
           <h1 class="name" title="Pavan Kalyan Koneti">Pavan Kalyan Koneti</h1>
           <p class="title">Aspiring Data Analyst</p>
         </div>
+
         <div class="separator"></div>
       </div>
 
@@ -487,6 +141,7 @@
               <a href="mailto:konetipavankalyan225@gmail.com" class="contact-link">konetipavankalyan225@gmail.com</a>
             </div>
           </li>
+
           <li class="contact-item">
             <div class="icon-box"><ion-icon name="phone-portrait-outline"></ion-icon></div>
             <div>
@@ -494,13 +149,7 @@
               <a href="tel:+919346749582" class="contact-link">+91 93467 49582</a>
             </div>
           </li>
-          <li class="contact-item">
-            <div class="icon-box"><ion-icon name="calendar-outline"></ion-icon></div>
-            <div>
-              <p class="contact-title">Birthday</p>
-              <time datetime="2004-02-10">Feb 10, 2004</time>
-            </div>
-          </li>
+
           <li class="contact-item">
             <div class="icon-box"><ion-icon name="location-outline"></ion-icon></div>
             <div>
@@ -512,10 +161,23 @@
 
         <div class="separator"></div>
 
+        <!-- Social links: LinkedIn, GitHub, Instagram -->
         <ul class="social-list">
-          <li class="social-item"><a class="social-link" href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
-          <li class="social-item"><a class="social-link" href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
-          <li class="social-item"><a class="social-link" href="#"><ion-icon name="logo-instagram"></ion-icon></a></li>
+          <li class="social-item">
+            <a class="social-link" href="https://www.linkedin.com/in/pavankalyan585/" target="_blank" rel="noopener" title="LinkedIn">
+              <ion-icon name="logo-linkedin"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a class="social-link" href="https://github.com/konetipavankalyan626" target="_blank" rel="noopener" title="GitHub">
+              <ion-icon name="logo-github"></ion-icon>
+            </a>
+          </li>
+          <li class="social-item">
+            <a class="social-link" href="https://www.instagram.com/reel/DA7ukbAPktx/" target="_blank" rel="noopener" title="Instagram">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
         </ul>
       </div>
     </aside>
@@ -525,71 +187,53 @@
       <!-- Navbar -->
       <nav class="navbar">
         <ul class="navbar-list">
-          <li class="navbar-item"><button class="navbar-link active" data-nav-link data-target="about">About</button>
-          </li>
+          <li class="navbar-item"><button class="navbar-link active" data-nav-link data-target="about">About</button></li>
           <li class="navbar-item"><button class="navbar-link" data-nav-link data-target="resume">Resume</button></li>
-          <li class="navbar-item"><button class="navbar-link" data-nav-link data-target="portfolio">Portfolio</button>
-          </li>
-          <li class="navbar-item"><button class="navbar-link" data-nav-link data-target="blog">Blog</button></li>
+          <li class="navbar-item"><button class="navbar-link" data-nav-link data-target="portfolio">Portfolio</button></li>
           <li class="navbar-item"><button class="navbar-link" data-nav-link data-target="contact">Contact</button></li>
         </ul>
       </nav>
 
       <!-- About -->
       <article class="about active" data-page="about">
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
+        <header><h2 class="h2 article-title">About me</h2></header>
+
         <section class="about-text">
           <p>
-            I’m Pavan Kalyan, an aspiring Data Analyst passionate about transforming raw data into actionable insights.
-            I specialize in data cleaning, analysis, and visualization using Python (Pandas, NumPy, Matplotlib,
-            Seaborn), SQL, Excel, and Power BI.
+            I’m <strong>Pavan Kalyan</strong>, an aspiring Data Analyst focused on turning messy data into clear, actionable insights.
+            I work with Python (Pandas, NumPy), SQL, Excel and Power BI to perform analysis, create visualizations and build dashboards.
           </p>
+
           <p>
-            My portfolio highlights projects such as Netflix Data Analysis, Blinkit Sales Insights, and a Hospital
-            Emergency Room Dashboard.
-            I enjoy uncovering patterns and presenting them with dashboards and reports that tell a clear story.
+            My projects highlight real-world problem solving — examples include Netflix data analysis (SQL), Blinkit sales analysis (Python), and a
+            Hospital Emergency Room dashboard (Power BI). I enjoy storytelling with data and creating reports that help teams make decisions.
           </p>
         </section>
 
         <section class="service">
-          <h3 class="h3 service-title">What I'm doing</h3>
+          <h3 class="h3 service-title">What I do</h3>
           <ul class="service-list">
             <li class="service-item">
-              <div class="service-icon-box"><img src="./assets/images/analysis.jpg" alt="Data Analysis" data-fallback />
-              </div>
+              <div class="service-icon-box"><img src="./assets/images/analysis.jpg" alt="Data Analysis" data-fallback /></div>
               <div class="service-content-box">
                 <h4 class="h4 service-item-title">Data Analysis</h4>
-                <p class="service-item-text">Analyzing real-world datasets using Python, SQL, and Excel to uncover
-                  trends and insights.</p>
+                <p class="service-item-text">Exploratory data analysis, feature extraction and statistical summaries using Python and Excel.</p>
               </div>
             </li>
+
             <li class="service-item">
-              <div class="service-icon-box"><img src="./assets/images/visualization.jpg" alt="Data Visualization"
-                  data-fallback /></div>
+              <div class="service-icon-box"><img src="./assets/images/visualization.jpg" alt="Data Visualization" data-fallback /></div>
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Data Visualization</h4>
-                <p class="service-item-text">Designing interactive dashboards in Power BI to present data-driven
-                  stories.</p>
+                <h4 class="h4 service-item-title">Dashboards & Reporting</h4>
+                <p class="service-item-text">Interactive dashboards and visuals in Power BI and presentation-ready charts for stakeholders.</p>
               </div>
             </li>
+
             <li class="service-item">
-              <div class="service-icon-box"><img src="./assets/images/certificates.jpg" alt="Learning" data-fallback />
-              </div>
+              <div class="service-icon-box"><img src="./assets/images/projects.jpg" alt="Projects" data-fallback /></div>
               <div class="service-content-box">
-                <h4 class="h4 service-item-title">Learning & Certifications</h4>
-                <p class="service-item-text">Upskilling in advanced SQL, statistics, and preparing for Google Data
-                  Analytics certification.</p>
-              </div>
-            </li>
-            <li class="service-item">
-              <div class="service-icon-box"><img src="./assets/images/projects.jpg" alt="Case Studies" data-fallback />
-              </div>
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Projects & Case Studies</h4>
-                <p class="service-item-text">Building end-to-end projects like Netflix Analysis, Blinkit Insights, and
-                  Hospital Dashboards.</p>
+                <h4 class="h4 service-item-title">Projects</h4>
+                <p class="service-item-text">End-to-end projects combining data cleaning, SQL queries, analysis and visualization for insights.</p>
               </div>
             </li>
           </ul>
@@ -598,105 +242,93 @@
 
       <!-- Resume -->
       <article class="resume" data-page="resume">
-        <header>
-          <h2 class="h2 article-title">Resume</h2>
-        </header>
+        <header><h2 class="h2 article-title">Resume</h2></header>
 
         <section class="timeline">
           <div class="title-wrapper">
             <div class="icon-box"><ion-icon name="book-outline"></ion-icon></div>
             <h3 class="h3">Education</h3>
           </div>
+
           <ol class="timeline-list">
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">K.S.R.M. College of Engineering</h4>
               <span>2021 — 2025</span>
-              <p class="timeline-text">B.Tech in Computer Science. Focus on programming, web development, and data
-                analysis.</p>
+              <p class="timeline-text">B.Tech — Computer Science. Learned programming, and data analysis. Worked on academic projects and developed strong problem-solving skills.</p>
             </li>
+
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">Narayana Junior College</h4>
               <span>2019 — 2021</span>
-              <p class="timeline-text">Intermediate (MPC). Built a strong foundation in Mathematics and Science.</p>
+              <p class="timeline-text">Intermediate (MPC) — strong foundation in Mathematics and logical thinking.</p>
             </li>
+
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">St. Joseph's Convent EM High School</h4>
               <span>Up to 2019</span>
-              <p class="timeline-text">Completed schooling; developed discipline, communication, and teamwork.</p>
+              <p class="timeline-text">Completed schooling — developed discipline, communication and teamwork skills.</p>
             </li>
           </ol>
         </section>
 
-        <section class="timeline">
+        <section class="timeline" style="margin-top:18px;">
           <div class="title-wrapper">
             <div class="icon-box"><ion-icon name="folder-outline"></ion-icon></div>
-            <h3 class="h3">Projects</h3>
+            <h3 class="h3">Selected Projects</h3>
           </div>
+
           <ol class="timeline-list">
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">Blinkit Sales Data Analysis</h4>
               <span>2025</span>
-              <p class="timeline-text">EDA on Blinkit sales data in Python; identified buying patterns and demand
-                trends.</p>
+              <p class="timeline-text">Exploratory data analysis using Python to identify buying patterns and demand trends. (GitHub)</p>
             </li>
+
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">Netflix Movies & TV Shows (SQL)</h4>
               <span>2025</span>
-              <p class="timeline-text">Analyzed content distribution by genre/year/region with optimized SQL queries.
-              </p>
+              <p class="timeline-text">SQL analysis on content distribution by genre, year and region; optimized queries for fast aggregation.</p>
             </li>
+
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">Hospital ER Dashboard (Power BI)</h4>
               <span>2025</span>
-              <p class="timeline-text">Interactive KPIs: wait time, admission rates, bed occupancy for decision-making.
-              </p>
+              <p class="timeline-text">Designed interactive KPIs: wait times, admission rates and occupancy for operational decision-making.</p>
             </li>
+
             <li class="timeline-item">
               <h4 class="h4 timeline-item-title">Short Film – "Failure"</h4>
               <span>2024</span>
-              <p class="timeline-text">Created and directed for World Space Week (ISRO SHAR), exploring storytelling and
-                teamwork.</p>
+              <p class="timeline-text">Directed and produced a short film — developed storytelling, coordination and project planning skills.</p>
             </li>
           </ol>
         </section>
 
-        <section class="skill">
+        <section class="skill" style="margin-top:18px;">
           <div class="title-wrapper">
             <div class="icon-box"><ion-icon name="construct-outline"></ion-icon></div>
             <h3 class="h3">Skills</h3>
           </div>
+
           <ul class="skills-list content-card">
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Excel</h5><data value="90">90%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width:90%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">Excel</h5><data value="90">90%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width:90%;"></div></div>
             </li>
+
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">SQL</h5><data value="85">85%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width:85%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">SQL</h5><data value="85">85%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width:85%;"></div></div>
             </li>
+
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Power BI</h5><data value="80">80%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width:80%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">Power BI</h5><data value="80">80%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width:80%;"></div></div>
             </li>
+
             <li class="skills-item">
-              <div class="title-wrapper">
-                <h5 class="h5">Python (Pandas, NumPy)</h5><data value="75">75%</data>
-              </div>
-              <div class="skill-progress-bg">
-                <div class="skill-progress-fill" style="width:75%;"></div>
-              </div>
+              <div class="title-wrapper"><h5 class="h5">Python (Pandas, NumPy)</h5><data value="75">75%</data></div>
+              <div class="skill-progress-bg"><div class="skill-progress-fill" style="width:75%;"></div></div>
             </li>
           </ul>
         </section>
@@ -707,109 +339,75 @@
         <h2 class="section-title">Portfolio</h2>
 
         <!-- Filter Buttons -->
-        <ul class="filter-list">
+        <ul class="filter-list" style="display:flex; gap:10px; padding:0; margin:12px 0 18px;">
           <li class="filter-item"><button class="active" data-filter-btn data-filter="all">All</button></li>
           <li class="filter-item"><button data-filter-btn data-filter="python">Python</button></li>
           <li class="filter-item"><button data-filter-btn data-filter="sql">SQL</button></li>
           <li class="filter-item"><button data-filter-btn data-filter="powerbi">Power BI</button></li>
-          <li class="filter-item"><button data-filter-btn data-filter="creative">Creative</button></li>
         </ul>
 
         <!-- Projects -->
         <ul class="portfolio-list">
-          <!-- Python -->
           <li class="portfolio-item python">
-            <a href="https://github.com/yourgithub/blinkit-analysis" target="_blank" rel="noopener">
-              <img src="./assets/images/blinkit-cover.png" alt="Blinkit Analysis" data-fallback />
+            <a href="https://github.com/konetipavankalyan626/Blinkit_Analysis_Python-Project" target="_blank" rel="noopener">
+              <img src="./assets/images/blink1.png" alt="Blinkit Analysis" data-fallback />
               <h4>Blinkit Sales Data Analysis</h4>
-              <p>Python</p>
+              <p>Python — EDA & insights</p>
             </a>
           </li>
 
-          <!-- SQL -->
           <li class="portfolio-item sql">
-            <a href="https://github.com/yourgithub/sql-netflix-analysis" target="_blank" rel="noopener">
-              <img src="./assets/images/netflix-sql.png" alt="Netflix SQL Analysis" data-fallback />
+            <a href="https://github.com/konetipavankalyan626/netflix_sql_project" target="_blank" rel="noopener">
+              <img src="./assets/images/Netflix.png" alt="Netflix SQL Analysis" data-fallback />
               <h4>Netflix Movies & TV Shows</h4>
-              <p>SQL</p>
+              <p>SQL — data modelling & queries</p>
             </a>
           </li>
 
-          <!-- Power BI -->
           <li class="portfolio-item powerbi">
-            <a href="https://github.com/konetipavankalyan626/hospital-emergency-room-dashboard" target="_blank"
-              rel="noopener">
-              <img src="./assets/images/hospital-powerbi.png" alt="Hospital ER Dashboard" data-fallback />
+            <a href="https://github.com/konetipavankalyan626/hospital-emergency-room-dashboard" target="_blank" rel="noopener">
+              <img src="./assets/images/monthlyview.png" alt="Hospital ER Dashboard" data-fallback />
               <h4>Hospital Emergency Room Dashboard</h4>
-              <p>Power BI</p>
+              <p>Power BI — interactive KPIs</p>
             </a>
           </li>
 
-          <!-- Creative (example) -->
-          <li class="portfolio-item creative">
-            <a href="#" target="_blank" rel="noopener">
-              <img src="./assets/images/short-film.png" alt="Short Film" data-fallback />
-              <h4>Short Film – "Failure"</h4>
-              <p>Creative</p>
+          <li class="portfolio-item">
+            <a href="https://www.instagram.com/reel/DA7ukbAPktx/" target="_blank" rel="noopener">
+              <img src="./assets/images/failure.jpg" alt="Short Film - Failure" data-fallback />
+              <h4>Short Film — "Failure"</h4>
+              <p>Creative — direction & production</p>
             </a>
           </li>
         </ul>
       </article>
 
-      <!-- Blog -->
-      <article class="blog" data-page="blog">
-        <header>
-          <h2 class="h2 article-title">Blog</h2>
-        </header>
-        <section class="blog-posts">
-          <ul class="blog-posts-list">
-            <li class="blog-post-item">
-              <a href="#">
-                <figure class="blog-banner-box"><img src="./assets/images/blog-1.jpg" alt="Design conferences"
-                    data-fallback loading="lazy" /></figure>
-                <div class="blog-content">
-                  <div class="blog-meta">
-                    <p class="blog-category">Design</p><span class="dot"></span><time datetime="2022-02-23">Feb 23,
-                      2022</time>
-                  </div>
-                  <h3 class="h3 blog-item-title">Design conferences in 2022</h3>
-                  <p class="blog-text">Veritatis et quasi architecto beatae vitae dicta sunt.</p>
-                </div>
-              </a>
-            </li>
-          </ul>
-        </section>
-      </article>
-
       <!-- Contact -->
       <article class="contact" data-page="contact">
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
+        <header><h2 class="h2 article-title">Contact</h2></header>
 
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1908.420972727!2d78.553!3d14.750!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1sProddatur!2sAndhra%20Pradesh!5e0!3m2!1sen!2sin!4v1710000000000"
-              width="600" height="300" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
+        <section class="contact-form" style="margin-bottom:18px;">
           <h3 class="h3 form-title">Contact Form</h3>
-          <form action="#" class="form" data-form
-            onsubmit="event.preventDefault(); alert('Thanks! I will get back to you soon.');">
+          <form action="#" class="form" data-form onsubmit="event.preventDefault(); alert('Thanks! I will get back to you soon.');">
             <div class="input-wrapper">
               <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input />
-              <input type="email" name="email" class="form-input" placeholder="Email address" required
-                data-form-input />
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input />
             </div>
+
             <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
             <button class="form-btn" type="submit" data-form-btn>
               <ion-icon name="paper-plane"></ion-icon>
               <span>Send Message</span>
             </button>
           </form>
+        </section>
+
+        <section>
+          <h3 class="h3">Other ways to reach me</h3>
+          <p style="color:var(--muted); margin:6px 0;">Email: <a href="mailto:konetipavankalyan225@gmail.com">konetipavankalyan225@gmail.com</a></p>
+          <p style="color:var(--muted); margin:6px 0;">Phone: <a href="tel:+919346749582">+91 93467 49582</a></p>
+          <p style="color:var(--muted); margin:6px 0;">Location: Proddatur, Andhra Pradesh, India</p>
         </section>
       </article>
     </div>
@@ -820,7 +418,6 @@
   <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
   <script>
-    // A tiny inline SVG placeholder used if an image is missing
     const IMG_FALLBACK =
       'data:image/svg+xml;utf8,' +
       encodeURIComponent(`
@@ -832,12 +429,11 @@
       </svg>
     `);
 
-    // Attach fallback to any <img data-fallback>
     document.querySelectorAll('img[data-fallback]').forEach(img => {
       img.onerror = () => { img.src = IMG_FALLBACK; };
     });
 
-    // --- Nav tab switching ---
+    // Nav tab switching
     (function () {
       const navButtons = document.querySelectorAll("[data-nav-link]");
       const pages = document.querySelectorAll("article[data-page]");
@@ -845,6 +441,7 @@
       function showPage(target) {
         pages.forEach(p => p.classList.toggle("active", p.getAttribute("data-page") === target));
         navButtons.forEach(b => b.classList.toggle("active", b.dataset.target === target));
+        window.scrollTo(0,0);
       }
 
       navButtons.forEach(btn => {
@@ -854,7 +451,7 @@
       showPage("about");
     })();
 
-    // --- Portfolio filter ---
+    // Portfolio filter
     (function () {
       const buttons = document.querySelectorAll("[data-filter-btn]");
       const items = document.querySelectorAll(".portfolio-list .portfolio-item");
@@ -874,7 +471,6 @@
         });
       }
 
-      // Initial state
       filter("all");
 
       buttons.forEach(btn => {
